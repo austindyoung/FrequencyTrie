@@ -62,7 +62,10 @@ class ComputerPlayer
     guess = nil
     greatest_frequency = 0
     aggregate_frequency_hash.each do |letter, freq|
-      guess = letter if freq > greatest_frequency && !@guesses.include?(letter)
+      if freq > greatest_frequency && !@guesses.include?(letter)
+        guess = letter
+        greatest_frequency = freq
+      end
     end
     guess
   end
